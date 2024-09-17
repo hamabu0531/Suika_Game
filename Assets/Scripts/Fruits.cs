@@ -30,7 +30,7 @@ public class Fruits : MonoBehaviour
     {
         if (!canUpdate) return;
 
-        if (this.transform.position.y > 2.8f)
+        if (this.transform.position.y > 1.9f)
         {
             pController.GameOver();
         }

@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public int score;
     public Text scoreText;
     public GameObject[] fruits;
+    public float leftBound, rightBound;
     private float moveSpeed = 5;
     private Rigidbody2D[] rBs;
     private bool isNextFruit = true, isGameOver = false;
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         nextFruit = fruits[Random.Range(0, 5)];
-        viewFruit = Instantiate(nextFruit, this.transform.position + Vector3.left * 1.2f, nextFruit.transform.rotation, this.transform);
+        viewFruit = Instantiate(nextFruit, this.transform.position + Vector3.left * 0.96f, nextFruit.transform.rotation, this.transform);
         viewFruit.GetComponent<Rigidbody2D>().simulated = false;
     }
 
@@ -26,29 +27,53 @@ public class PlayerController : MonoBehaviour
         if (!isGameOver)
         {
             scoreText.text = score.ToString();
+
+            Debug.Log(Input.touchCount);
+
+            Touch[] touches = Input.touches;
+            /*
             // 移動
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                if (transform.position.x > -1.2f)
+                if (transform.position.x > leftBound)
                 {
                     transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
                 }
             }
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
-                if (transform.position.x < 3.6f)
+                if (transform.position.x < rightBound)
                 {
                     transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
                 }
             }
+            */
 
-            // フルーツ落下
-            if (Input.GetKeyDown(KeyCode.Space) && isNextFruit)
+            if (touches.Length != 0)
             {
-                Destroy(viewFruit);
-                Instantiate(nextFruit, this.transform.position + Vector3.left * 1.2f, nextFruit.transform.rotation);
-                StartCoroutine(nextCycle());
+                // 移動
+                Vector2 newPos = new Vector2((touches[0].position.x) / 135f - 2.1f, 2.9f);
+
+                if (newPos.x < leftBound)
+                {
+                    newPos.x = leftBound;
+                }
+                if (newPos.x > rightBound)
+                {
+                    newPos.x = rightBound;
+                }
+
+                transform.position = newPos;
+
+                // フルーツ落下
+                if (touches[0].phase == TouchPhase.Ended && isNextFruit)
+                {
+                    Destroy(viewFruit);
+                    Instantiate(nextFruit, this.transform.position + Vector3.left * 0.96f, nextFruit.transform.rotation);
+                    StartCoroutine(nextCycle());
+                }
             }
+
         }    
     }
 
@@ -72,7 +97,7 @@ public class PlayerController : MonoBehaviour
             isNextFruit = true;
 
             // 雲の横に次のフルーツを表示
-            viewFruit = Instantiate(nextFruit, this.transform.position + Vector3.left * 1.2f, nextFruit.transform.rotation, this.transform);
+            viewFruit = Instantiate(nextFruit, this.transform.position + Vector3.left * 0.96f, nextFruit.transform.rotation, this.transform);
             viewFruit.GetComponent<Rigidbody2D>().simulated = false;
         }
     }
