@@ -53,9 +53,6 @@ public class Fruits : MonoBehaviour
             Vector3 fruits2Pos = collision.gameObject.transform.localPosition;
             Vector3 instantiatePos = (fruits1Pos + fruits2Pos) / 2;
 
-            // 1ランク上のフルーツを生成
-            Instantiate(fruitPrefab[fruitsIndex], instantiatePos, fruitPrefab[fruitsIndex].transform.rotation);
-
             // スコア更新
             pController.score += mergePoints;
 
@@ -63,6 +60,16 @@ public class Fruits : MonoBehaviour
             isDestroyed = true;  // フラグを立てておく
             Destroy(gameObject);
             Destroy(collision.gameObject);
+
+            // スイカの場合
+            if (collision.gameObject.CompareTag("fruits11"))
+            {
+                pController.score += 100;
+                return;
+            }
+
+            // 1ランク上のフルーツを生成
+            Instantiate(fruitPrefab[fruitsIndex], instantiatePos, fruitPrefab[fruitsIndex].transform.rotation);
         }
     }
 }

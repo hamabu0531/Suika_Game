@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour
             rB.simulated = false;
         }
         Debug.Log("Game Over");
+        // ゲームオーバー処理を後ほど記述
     }
     IEnumerator nextCycle()
     {
