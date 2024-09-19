@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log(Input.touchCount);
 
             Touch[] touches = Input.touches;
-            /*
-            // ˆÚ“®
+            ///*
+            // ˆÚ“® (PC‘€ì—p)
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 if (transform.position.x > leftBound)
@@ -47,8 +47,15 @@ public class PlayerController : MonoBehaviour
                     transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
                 }
             }
-            */
+            if (Input.GetKeyDown(KeyCode.Space) && isNextFruit)
+            {
+                Destroy(viewFruit);
+                Instantiate(nextFruit, this.transform.position + Vector3.left * 0.96f, nextFruit.transform.rotation);
+                StartCoroutine(nextCycle());
+            }
+            //*/
 
+            
             if (touches.Length != 0)
             {
                 // ˆÚ“®
@@ -73,7 +80,7 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(nextCycle());
                 }
             }
-
+            
         }    
     }
 

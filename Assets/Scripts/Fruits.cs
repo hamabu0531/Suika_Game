@@ -17,7 +17,7 @@ public class Fruits : MonoBehaviour
     void Start()
     {
         // ¿—Ê‚ğŒˆ‚ß‚é”Šw“IŠÖ”
-        fruitsMass = 100.0f / (fruitsIndex + 2);
+        fruitsMass = 100.0f / (fruitsIndex + 3);
         this.GetComponent<Rigidbody2D>().mass = fruitsMass;
         mergePoints = fruitsIndex * 10;
         this.tag = "fruits" + fruitsIndex;
