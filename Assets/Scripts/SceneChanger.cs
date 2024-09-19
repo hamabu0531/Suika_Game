@@ -3,12 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    public GameObject audioManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        DontDestroyOnLoad(audioManager);
-        DontDestroyOnLoad(this);
+
     }
 
     // Update is called once per frame
@@ -29,6 +27,6 @@ public class SceneChanger : MonoBehaviour
 
     public void LoadTitle()
     {
-        SceneManager.LoadScene("TitleScene");
+        SceneManager.LoadScene("TitleScene2");
     }
 }

@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public int score;
     public Text scoreText;
     public GameObject[] fruits;
+    public GameObject hiddenCanvas;
     public float leftBound, rightBound;
     private float moveSpeed = 5;
     private Rigidbody2D[] rBs;
@@ -93,6 +94,7 @@ public class PlayerController : MonoBehaviour
             rB.simulated = false;
         }
         Debug.Log("Game Over");
+        hiddenCanvas.SetActive(true);
         // ゲームオーバー処理を後ほど記述
     }
     IEnumerator nextCycle()
