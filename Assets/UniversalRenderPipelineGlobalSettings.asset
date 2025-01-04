@@ -55,18 +55,7 @@ MonoBehaviour:
       - rid: 8715043924269072403
       - rid: 8715043924269072404
     m_RuntimeSettings:
-      m_List:
-      - rid: 8715043924269072384
-      - rid: 8715043924269072385
-      - rid: 8715043924269072387
-      - rid: 8715043924269072388
-      - rid: 8715043924269072389
-      - rid: 8715043924269072392
-      - rid: 8715043924269072394
-      - rid: 8715043924269072396
-      - rid: 8715043924269072399
-      - rid: 8715043924269072400
-      - rid: 8715043924269072403
+      m_List: []
   m_AssetVersion: 8
   m_ObsoleteDefaultVolumeProfile: {fileID: 0}
   m_RenderingLayerNames:
@@ -100,6 +89,7 @@ MonoBehaviour:
       data:
         m_xrOcclusionMeshPS: {fileID: 4800000, guid: 4431b1f1f743fbf4eb310a967890cbea, type: 3}
         m_xrMirrorViewPS: {fileID: 4800000, guid: d5a307c014552314b9f560906d708772, type: 3}
+        m_xrMotionVector: {fileID: 4800000, guid: f89aac1e4f84468418fe30e611dff395, type: 3}
     - rid: 8715043924269072386
       type: {class: UniversalRendererResources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
       data:
@@ -119,7 +109,7 @@ MonoBehaviour:
         m_GeometryShadowShader: {fileID: 4800000, guid: 19349a0f9a7ed4c48a27445bcf92e5e1, type: 3}
         m_GeometryUnshadowShader: {fileID: 4800000, guid: 77774d9009bb81447b048c907d4c6273, type: 3}
         m_FallOffLookup: {fileID: 2800000, guid: 5688ab254e4c0634f8d6c8e0792331ca, type: 3}
-        m_DefaultCustomMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+        m_CopyDepthPS: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
         m_DefaultLitMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
         m_DefaultUnlitMaterial: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
         m_DefaultMaskMaterial: {fileID: 2100000, guid: 15d0c3709176029428a0da2f8cecf0b5, type: 2}
@@ -152,6 +142,7 @@ MonoBehaviour:
         m_DefaultLineMaterial: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
         m_DefaultTerrainMaterial: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
         m_DefaultDecalMaterial: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
+        m_DefaultSpriteMaterial: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - rid: 8715043924269072392
       type: {class: UniversalRenderPipelineDebugShaders, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
       data:
